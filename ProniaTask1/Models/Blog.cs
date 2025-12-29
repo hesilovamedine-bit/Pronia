@@ -8,5 +8,6 @@
         public string Description { get; internal set; }
         public int Order { get; internal set; }
         public string Image { get; internal set; }
+        public int Discount { get; internal set; }
     }
 }
