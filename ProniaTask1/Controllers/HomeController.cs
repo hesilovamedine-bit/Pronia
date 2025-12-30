@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProniaTask1.DAL;
 using ProniaTask1.Models;
 using ProniaTask1.ViewModels;
@@ -19,7 +20,7 @@ namespace ProniaTask1.Controllers
 
         //private List<Blog> blogs= new List<Blog>
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //List<Slide> slides = new List<Slide>()
             //{
@@ -92,10 +93,11 @@ namespace ProniaTask1.Controllers
 
 
 
+
             HomeVM homeVM = new HomeVM
             {
-                Slides = _context.Sliders.OrderBy(s=>s.Order).ToList(),
-                Blogs = _context.Blogs.OrderBy(b=>b.Order).ToList(),
+                Slides = await  _context.Sliders.OrderBy(s=>s.Order).ToListAsync(),
+                Blogs = await   _context.Blogs.OrderBy(b=>b.Order).ToListAsync(),
             };
            
             return View(homeVM);
@@ -108,10 +110,10 @@ namespace ProniaTask1.Controllers
         }
 
 
-        //public IActionResult NotFound()
-        //{
-        //    return View();
-        //}
+        public IActionResult NotFound()
+        {
+            return View();
+        }
 
 
     }
