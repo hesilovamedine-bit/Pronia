@@ -12,6 +12,7 @@ namespace ProniaTask1.Models
         public Category Category { get; set; }
 
         public List<ProductImage> ProductImages { get; set; }
+        public object Order { get; internal set; }
     }
     
 }

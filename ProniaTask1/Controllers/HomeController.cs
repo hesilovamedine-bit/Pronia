@@ -97,8 +97,10 @@ namespace ProniaTask1.Controllers
             HomeVM homeVM = new HomeVM
             {
                 Slides = await  _context.Sliders.OrderBy(s=>s.Order).ToListAsync(),
-                Blogs = await   _context.Blogs.OrderBy(b=>b.Order).ToListAsync(),
+                Blogs = await _context.Blogs.OrderBy(b => b.Order).ToListAsync(),
+                Products = await _context.Products.OrderBy(b => b.Order).ToListAsync(),
             };
+
            
             return View(homeVM);
         }

@@ -22,6 +22,12 @@ namespace ProniaTask1
             app.UseStaticFiles();
 
             app.MapControllerRoute(
+                name: "admin",
+                //admin/home/index
+                pattern: "{area:exists}/{controller=home}/{action=index}/{id?}"
+            );
+
+            app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}"
             );
